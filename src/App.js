@@ -1,7 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
+  require("dotenv").config();
+
+  console.log("process.env: ".process.env);
+  console.log("process.env.TEST_ENV_VAR_STR: ".process.env.TEST_ENV_VAR_STR);
+  console.log("process.env.TEST_ENV_VAR_NUM: ".process.env.TEST_ENV_VAR_NUM);
+
   return (
     <div className="App">
       <header className="App-header">
