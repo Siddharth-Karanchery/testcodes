@@ -3,7 +3,7 @@ import "./App.css";
 import "dotenv/config";
 
 function App() {
-  require("dotenv").config();
+  // require("dotenv").config();
 
   console.log("process.env: ".process.env);
   console.log("process.env.TEST_ENV_VAR_STR: ".process.env.TEST_ENV_VAR_STR);
