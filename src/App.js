@@ -8,7 +8,7 @@ function App() {
   console.log("process.env.TEST_ENV_VAR_STR: ", process.env.TEST_ENV_VAR_STR);
   console.log("process.env.TEST_ENV_VAR_NUM: ", process.env.TEST_ENV_VAR_NUM);
 
-  console.log("test");
+  console.log("test change");
 
   return (
     <div className="App">
