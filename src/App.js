@@ -13,17 +13,18 @@ function App() {
 
   console.log("test change");
 
-  React.useEffect(() => {
+  const handleGETorderData = () => {
     axios.get("http://localhost:4000/GETorderData").then((res) => {
-      console.log(res);
+      console.log("UI res: ", res);
       setApiData(res.data);
     });
-  });
-
+  };
   return (
     <div className="App">
       <p>This is a test app</p>
-      <p>API Data: {apiData}</p>
+      <button onClick={handleGETorderData}>GETorderData</button>
+      <p>-----------------------------------------------------------------</p>
+      <p>API Data: {JSON.stringify(apiData, null, "\t")}</p>
     </div>
   );
 }

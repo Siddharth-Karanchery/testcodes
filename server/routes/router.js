@@ -1,9 +1,21 @@
 const express = require("express");
+const database = require("../database");
 
 const router = express.Router();
 
 router.get("/GETorderData", (req, res) => {
-  res.send("Data sent successfully!");
+  const query = `
+  SELECT * from orderData;
+`;
+  database.query(query, (err, response) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    console.log("response: ", response);
+    res.send(response.rows);
+  });
+  // database.end();
 });
 
 router.post("/POSTorderData", (req, res) => {
