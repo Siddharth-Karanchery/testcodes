@@ -23,4 +23,23 @@ router.post("/POSTorderData", (req, res) => {
   res.send("Data Submitted successfully!");
 });
 
+router.post("/POSTSearchOrder", (req, res) => {
+  const { hotelName, location, amount } = req.body;
+  console.log(hotelName, location, amount);
+  const query = `
+  SELECT * from OrderData 
+  where hotelname=$1
+  and hotelloc=$2
+  and amount=$3;
+`;
+  database.query(query, [hotelName, location, amount], (err, response) => {
+    if (err) {
+      console.error("Error: ", err);
+      return;
+    }
+    console.log("response.rows: ", response.rows);
+    res.send(response.rows);
+  });
+});
+
 module.exports = router;

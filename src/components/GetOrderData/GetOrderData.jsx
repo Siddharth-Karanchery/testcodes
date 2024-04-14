@@ -13,7 +13,7 @@ function GetOrderData() {
 
   return (
     <div style={{ border: "1px solid black", backgroundColor: "lightgray" }}>
-      <p>This is a test app</p>
+      <p>GETorderData</p>
       <button onClick={handleGETorderData}>GETorderData</button>
       <p>-----------------------------------------------------------------</p>
       <p>API Data: {JSON.stringify(apiData, null, "\t")}</p>

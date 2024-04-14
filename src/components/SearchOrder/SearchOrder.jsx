@@ -8,10 +8,16 @@ function SearchOrder() {
   const [amount, setAmount] = React.useState("");
 
   const handlePOSTSearchOrder = () => {
-    axios.get("http://localhost:4000/GETorderData").then((res) => {
-      console.log("UI res: ", res);
-      setApiData(res.data);
-    });
+    axios
+      .post("http://localhost:4000/POSTSearchOrder", {
+        hotelName: hotelName,
+        location: location,
+        amount: Number(amount),
+      })
+      .then((res) => {
+        console.log("UI res: ", res);
+        setApiData(res.data);
+      });
   };
 
   const handleReset = () => {
@@ -38,7 +44,7 @@ function SearchOrder() {
         backgroundColor: "lightgray",
       }}
     >
-      <p>This is a test app</p>
+      <p>POSTSearchOrder</p>
       <input onChange={handleHNChange} value={hotelName} />
       <input onChange={handleLocChange} value={location} />
       <input onChange={handleAmountChange} value={amount} />
