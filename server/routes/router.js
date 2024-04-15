@@ -42,4 +42,21 @@ router.post("/POSTSearchOrder", (req, res) => {
   });
 });
 
+router.post("/POSTInsertOrder", (req, res) => {
+  const { hotelName, location, amount } = req.body;
+  console.log(hotelName, location, amount);
+  const query = `
+  INSERT INTO orderData (hotelName, hotelloc, amount)
+VALUES ($1, $2, $3);
+`;
+  database.query(query, [hotelName, location, amount], (err, response) => {
+    if (err) {
+      console.error("Error: ", err);
+      return;
+    }
+    console.log("response.rows: ", response.rows);
+    res.send(response.rows);
+  });
+});
+
 module.exports = router;
